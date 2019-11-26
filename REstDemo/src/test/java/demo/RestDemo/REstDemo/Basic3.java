@@ -3,6 +3,13 @@ package demo.RestDemo.REstDemo;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
@@ -12,6 +19,22 @@ import io.restassured.response.Response;
 
 public class Basic3 {
 	
+	
+	@BeforeTest
+	public void getData() throws IOException
+	{
+		Properties prop=new Properties();
+		
+		FileInputStream fis=new FileInputStream("Users/568650/git/RestAPI_Automation/REstDemo/src/test/java/Files/application.properties");
+		
+		prop.load(fis);
+		
+		prop.get("HOST");
+		
+		
+		
+		
+	}
 	
 	@Test
 	public void AddandDeletePlace()
